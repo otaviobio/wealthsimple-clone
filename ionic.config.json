@@ -1,0 +1,7 @@
+{
+  "name": "wealthsimple",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
