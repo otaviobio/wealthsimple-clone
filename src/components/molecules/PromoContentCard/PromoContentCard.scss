@@ -1,0 +1,36 @@
+.promoContentCardContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 10vw;
+  padding: 1.25rem 1.25rem 15rem;
+
+  background-color: #ecf3d5;
+  color: #32302f;
+  border-radius: 28px;
+
+  background-size: 400px 400px;
+  background-repeat: no-repeat;
+  background-position: right 50% bottom -175px;
+
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 2rem;
+    margin: 0 0 20px;
+  }
+  
+  .btn-container {
+    margin: 0 1.25rem;
+  }
+}
+
+.no-background {
+  background-color: #fff;
+  padding: 1.25rem;
+}

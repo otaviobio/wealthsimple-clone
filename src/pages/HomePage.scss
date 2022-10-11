@@ -1,0 +1,60 @@
+.after-animation-session {
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+  padding: 0 10vw;
+  text-align: center;
+  color: #32302f;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-weight: 500;
+    margin: 0 1rem 2.5rem;
+  };
+}
+
+.session-break {
+  font-size: 2rem;
+  display: block;
+  color: #32302f;
+  margin: 5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bottom-main {
+  padding: 15vh 10vw;
+
+  .btn-container {
+    margin: 0 3.5rem -12rem;
+  }
+  
+  .bottom-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+    margin: 0;
+  
+    h2 {
+      font-size: 2.5rem;
+      display: block;
+      color: #32302f;
+      margin: 0 2rem 1rem;
+      font-weight: 700;
+    }
+  
+    p {
+      display: block;
+      color: #32302f;
+      margin: 0 0 2.5rem;
+      font-weight: 500;
+    }
+  }
+}

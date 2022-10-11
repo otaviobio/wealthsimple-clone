@@ -1,0 +1,31 @@
+.list-link-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: calc(100vw - 2rem);
+  
+  .list-link-icon {
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+  }
+
+  .list-link-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    p {
+      display: block;
+      margin: 0 0 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    span {
+      display: block;
+      font-size: 0.7rem;
+      color: #818589;
+      margin-bottom: 1rem;
+    }
+  }
+}

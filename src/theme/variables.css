@@ -3,6 +3,13 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  --ion-color-favorite: #32302f;
+  --ion-color-favorite-rgb:  	50, 48, 47;
+  --ion-color-favorite-contrast: #ffffff;
+  --ion-color-favorite-contrast-rgb: 255, 255, 255;
+  --ion-color-favorite-shade: #504d4c;
+  --ion-color-favorite-tint: #8c8885;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -76,13 +83,20 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: favorite) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
 
   body {
+    --ion-color-favorite: #32302f;
+    --ion-color-favorite-rgb:  	50, 48, 47;
+    --ion-color-favorite-contrast: #ffffff;
+    --ion-color-favorite-contrast-rgb: 255, 255, 255;
+    --ion-color-favorite-shade: #504d4c;
+    --ion-color-favorite-tint: #8c8885;
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;

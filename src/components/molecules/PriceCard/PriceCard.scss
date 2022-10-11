@@ -1,0 +1,45 @@
+.priceCardContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 10vw;
+  padding: 2.75rem 1.5rem;
+
+  background-color: #ecf3d5;
+  color: #32302f;
+  border-radius: 28px;
+
+  span {
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 2rem;
+    margin: 0;
+  }
+  
+  ul {
+    padding: 0;
+
+    div {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 20px;
+
+      .icon {
+        font-size: 1.75rem;
+        --ionicon-stroke-width: 1.5rem;
+      }
+    }
+  }
+}
+
+.withBorder {
+  background-color: #fff;
+}

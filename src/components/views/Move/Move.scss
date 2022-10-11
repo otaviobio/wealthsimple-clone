@@ -1,0 +1,35 @@
+.move-header {
+  width: 100%;
+
+  h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: 2rem;
+  }
+
+  .move-header-btn-container {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+    
+    .btn-container {
+      flex-direction: column-reverse;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border-color: #ececec;
+      // font-size: 0.8rem;
+      font-weight: 900;
+    }
+  }
+}
+
+.move-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  >div>div:not(:first-child) {
+    border-bottom: 1px solid #ececec;
+  }
+}
