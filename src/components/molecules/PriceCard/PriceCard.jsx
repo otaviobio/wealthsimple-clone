@@ -26,7 +26,6 @@ export function PriceCard(props) {
         {planFeatures.map((feature, idx) => {
           return(
             <div>
-              {/* key? */}
               <IonIcon className='icon' icon={checkmarkDoneOutline} alt="Close menu icon" />
               <p>{feature}</p>
             </div>

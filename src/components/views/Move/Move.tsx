@@ -1,11 +1,19 @@
-import { IonContent, IonPage, } from '@ionic/react';
+import { IonContent, IonPage, IonRouterLink, } from '@ionic/react';
 import { Button } from '../../atoms/Button/Button';
 import { buttonsData, linksData } from '../../../assets/data/move-tab-data';
 import './Move.scss'
 import { ListLink } from '../../atoms/ListLink/ListLink';
+import { useContext } from 'react';
+import { AccountsContext } from '../../../pages/AppPage';
 
 const Move: React.FC = () => {
+  const { setAccountMovementType } = useContext(AccountsContext)
 
+  // @ts-ignore
+  const handleMovementType = (movementType) => {
+    setAccountMovementType(movementType)
+  }
+  
   return (
     <IonPage>
       <IonContent fullscreen>
@@ -15,13 +23,15 @@ const Move: React.FC = () => {
             <div className="move-header-btn-container">
               {buttonsData.map((buttonData, idx) => {
                 return(
-                  <Button
-                    key={idx}
-                    btnText={buttonData.buttonText}
-                    hasIcon
-                    hasBorder
-                    iconName={buttonData.iconName}
-                  />
+                  <IonRouterLink key={idx} routerLink="/app/move/funds">
+                    <Button
+                      btnText={buttonData.buttonText}
+                      hasIcon
+                      hasBorder
+                      iconName={buttonData.iconName}
+                      onClick={() => handleMovementType(buttonData.buttonText)}
+                    />
+                  </IonRouterLink>
                 )
               })}
             </div>

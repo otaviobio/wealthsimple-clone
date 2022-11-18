@@ -1,3 +1,4 @@
+// @ts-nocheck
 import './Portfolio.scss';
 import { IonContent, IonPage } from '@ionic/react';
 import { DoughnutChart } from '../../atoms/DoughnutChart/DoughnutChart';
@@ -10,8 +11,24 @@ import { Pagination } from "swiper";
 import 'swiper/css';
 import "swiper/css/pagination";
 import { ListLink } from '../../atoms/ListLink/ListLink';
+import { useContext, useEffect, useState } from 'react';
+import { AccountsContext } from '../../../pages/AppPage';
 
 const Portfolio: React.FC = () => {
+  const [ready, setReady] = useState(false);
+  const {accountDetails} = useContext(AccountsContext)
+  console.log(accountDetails)
+
+  const portfolioValues = accountDetails.map((account) => account.accountTotal)
+  const portfolioTotal = portfolioValues.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setReady(true);
+    }, 100);
+  }, [])
+  
+
   const data = [
 		{
 			title: "Build your watchlist",
@@ -58,12 +75,12 @@ const Portfolio: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen>
+      <IonContent>
         <section className='container'>
           <div className="portfolio-header">
             <h2>Your Portfolio</h2>
-            <span>$0.00</span>
-            <DoughnutChart />
+            <span>${portfolioTotal}</span>
+            {ready ? <DoughnutChart test="testing" chartValues={portfolioValues}/> : null}
           </div>
 
           <div className="carousel-swiper-container">
@@ -97,18 +114,17 @@ const Portfolio: React.FC = () => {
           <div className="accounts-container">
             <h4>My accounts</h4>
             <div className="account-types">
-              <ListLink
-                linkText="Crypto"
-                linkSubText="Crypto"
-                isAccountLink={true}
-                accountTotal={30}
-              />
-              <ListLink
-                linkText="Personal"
-                linkSubText="Personal"
-                isAccountLink={true}
-                accountTotal={30}
-              />
+              {accountDetails.map((account, idx) => {
+                return (
+                  <ListLink
+                    key={idx}
+                    isAccountLink={true}
+                    linkText={account.accountName}
+                    linkSubText={account.accountName}
+                    accountTotal={account.accountTotal}
+                  />
+                )
+              })}
             </div>
             <Button
               btnText="Add an account"

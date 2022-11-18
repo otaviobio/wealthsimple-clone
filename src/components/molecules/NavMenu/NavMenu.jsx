@@ -8,7 +8,7 @@ import {
   IonItem, 
   IonLabel,
   CreateAnimation,
-  Animation
+  IonRouterLink
 } from '@ionic/react';
 import { Button } from "../../atoms/Button/Button";
 import { useState } from 'react';
@@ -57,40 +57,50 @@ export function NavMenu() {
             <IonAccordionGroup>
               <IonAccordion value="first" >
                 <IonItem className='custom-accordion' color="favorite" slot="header">
-                  <IonLabel>Invest</IonLabel>
+                  <IonLabel>Calculators</IonLabel>
                 </IonItem>
-                <div className="ion-padding custom-accordion-item" slot="content">
-                  Stocks & ETFs
+                <div className="custom-accordion-item" slot="content">
+                  <IonRouterLink className="custom-accordion-link" routerLink="/calculator/retirement">
+                    Retirement Calculator
+                  </IonRouterLink>
                 </div>
-                <div className="ion-padding custom-accordion-item" slot="content">
-                  Crypto
-                </div>
-                <div className="ion-padding custom-accordion-item" slot="content">
-                  Managed Investing
+                <div className="custom-accordion-item" slot="content">
+                  <IonRouterLink className="custom-accordion-link" routerLink="/calculator/tax">
+                    Income tax calculator
+                  </IonRouterLink>
                 </div>
               </IonAccordion>
             </IonAccordionGroup>
+            
+            <div className="custom-accordion-direct-link" slot="content">
+              <IonRouterLink className="custom-accordion-link" routerLink="/signup">
+                Signup Form
+              </IonRouterLink>
+            </div>
 
-            <IonLabel className='custom-nav-item'>Spend & Save</IonLabel>
-
-            <IonLabel className='custom-nav-item'>Tax</IonLabel>
-
+            <div className="custom-accordion-direct-link" slot="content">
+              <IonRouterLink className="custom-accordion-link" routerLink="/cards">
+                Cards
+              </IonRouterLink>
+            </div>
             <IonAccordionGroup>
-              <IonAccordion value="first">
+              <IonAccordion value="first" >
                 <IonItem className='custom-accordion' color="favorite" slot="header">
-                  <IonLabel>Learn</IonLabel>
+                  <IonLabel>Pages</IonLabel>
                 </IonItem>
-                <div className="ion-padding custom-accordion-item" slot="content">
-                  Magazine
+                <div className="custom-accordion-item" slot="content">
+                  <IonRouterLink className="custom-accordion-link" routerLink="/app">
+                    App
+                  </IonRouterLink>
                 </div>
-                <div className="ion-padding custom-accordion-item" slot="content">
-                  Personal finance 101
-                </div>
-                <div className="ion-padding custom-accordion-item" slot="content">
-                  Income tax calculator
+                <div className="custom-accordion-item" slot="content">
+                  <IonRouterLink className="custom-accordion-link" routerLink="/">
+                    Homepage
+                  </IonRouterLink>
                 </div>
               </IonAccordion>
             </IonAccordionGroup>
+
             <div className="nav-footer">
               <Button
                 className="btn-container"

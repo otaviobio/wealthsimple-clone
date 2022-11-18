@@ -20,7 +20,7 @@ export function Hero(props) {
             <h1>Do money right</h1>
             <p>Forward-thinking financial tools trusted by over 2.5 million Canadians.</p>
           </div>
-          <Button btnText="Get started"/>
+          <Button btnText="Download the app"/>
         </div>
       </CreateAnimation>
     </section>

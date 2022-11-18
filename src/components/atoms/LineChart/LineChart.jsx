@@ -1,31 +1,12 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-  ScriptableContext
-} from 'chart.js';
-import { useEffect, useState } from 'react';
+import { Chart, registerables } from 'chart.js';
+import { useEffect, useRef, useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 import './LineChart.scss'
 
-export function LineChart({coinId}) {
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-    Filler,
-  );
+export function LineChart({coinId, lineColor}) {
+  Chart.register(...registerables);
   
   // this is a function needed for adding gradient below the line in a dataset
   const gradientChart = (context) => {
@@ -37,9 +18,10 @@ export function LineChart({coinId}) {
   }
 
   const [chart, setChart] = useState([])
-  const baseUrl = `https://api.coinranking.com/v2/coin/${coinId}/history?timePeriod=3m`;
+  const baseUrl = `https://api.coinranking.com/v2/coin/${coinId}/history?timePeriod=24h`;
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const apiKey = "coinranking44cbeff766cb8fbf1778df7bdebc29504522322fa0af81e1";
+  const test1 = document.getElementById('line')
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -60,14 +42,13 @@ export function LineChart({coinId}) {
       })
     }
     fetchCoins()
+
   }, [baseUrl, proxyUrl, apiKey])
 
   const labels = chart?.history?.map(coin => {
     let date = new Date(coin.timestamp * 1000);
     return date.toLocaleDateString("en-CA", {day: '2-digit', month: 'short'})
   });
-
-  // const labels = [...new Set(uniqueDates)].reverse();
 
   const prices = chart?.history?.map(coin => coin.price);
 
@@ -79,12 +60,12 @@ export function LineChart({coinId}) {
         {
           label: "Bitcoin sales",
           data: prices,
-          // data: [60, 75, 73, 60, 49, 56, 57, 49, 37, 25, 29, 37],
-          fill: "start",
+          fill: false,
           backgroundColor: gradientChart,
-          borderColor: "rgba(75,192,192,1)",
+          borderColor: lineColor,
           pointBackgroundColor: "#ececec",
-          tension: 0.3,
+          // gives it more rounded points
+          // tension: 0.3,
           beginFrom: 0,
         }
       ]
@@ -98,9 +79,9 @@ export function LineChart({coinId}) {
     
     const options = {
       responsive: true,
-      radius: 4,
-      hitRadius: 20,
-      hoverRadius: 8,
+      radius: 0,
+      hitRadius: 0,
+      hoverRadius: 0,
       animation: {
         onComplete: () => {
           delayed = true;
@@ -115,24 +96,44 @@ export function LineChart({coinId}) {
       },
       plugins: {
         title: {
-          display: true,
+          // display: true,
           text: 'B!O Chart',
         },
+        legend: false,
+        tooltip: false,
+        chartAreaBorder: false,
       },
       scales: {
         y: {
           ticks: {
-            callback: function (value) {
-              return "$" + value + "k";
-            },
+            display: false
+          },
+          grid: {
+            display: false
           },
         },
+        x: {
+          ticks: {
+            display: false
+          },
+          grid: {
+            display: false
+          }
+        },
       },
+      showXLabels: 10,
     }
+    const chartRef = useRef(null)
+    // let test = Chart.getChart("line");
+    // if(test != undefined) {
+    //   test.destroy()
+    // }
     
     return(
-      <div className="chart">
+      <div className="line-chart">
       <Line
+        id={coinId}
+        ref={chartRef}
         options={options}
         data={data()}
         />
@@ -140,28 +141,73 @@ export function LineChart({coinId}) {
   );
 }
 
-// const labels = [
-//   "Monday",
-//   "Tuesday",
-//   "Wednesday",
-//   "Thursday",
-//   "Friday",
-//   "Saturday",
-//   "Sunday",
-//   "Monday"
-// ]
+/*
 
-// const labels = [
-//   "Jan",
-//   "Feb",
-//   "Mar",
-//   "Apr",
-//   "May",
-//   "Jun",
-//   "Jul",
-//   "Aug",
-//   "Sep",
-//   "Oct",
-//   "Nov",
-//   "Dec"
-// ];
+const data = () => {
+  return {
+    labels,
+    datasets: [
+      {
+        label: "Bitcoin sales",
+        data: prices,
+        // data: [60, 75, 73, 60, 49, 56, 57, 49, 37, 25, 29, 37],
+        fill: "start",
+        backgroundColor: gradientChart,
+        borderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#ececec",
+        // gives it more rounded points
+        // tension: 0.3,
+        beginFrom: 0,
+      }
+    ]
+  };
+};
+  
+  // this is needed to add a delayed animation for each point on the first time that the dataset is rendered.
+  // It is the "animation" option.
+  // The options with "radius" on them change the dots on each dataset.
+  let delayed;
+  
+  const options = {
+    responsive: true,
+    radius: 0,
+    hitRadius: 20,
+    hoverRadius: 8,
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 10 + context.datasetIndex * 80;
+        }
+        return delay;
+      },
+    },
+    plugins: {
+      title: {
+        // display: true,
+        text: 'B!O Chart',
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          callback: function (value) {
+            return "$" + value + "k";
+          },
+        },
+      },
+    },
+  }
+
+  return(
+      <div className="line-chart">
+      <Line
+        options={options}
+        data={data()}
+        />
+    </div>
+
+  */

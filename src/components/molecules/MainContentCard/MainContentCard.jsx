@@ -1,5 +1,4 @@
 import Lottie from "lottie-react";
-import bitcoinCityAnimation from "../../../assets/lottie/crypto-city.json";
 import { Button } from "../../atoms/Button/Button";
 import './MainContentCard.scss';
 import { arrowForwardOutline } from 'ionicons/icons';

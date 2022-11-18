@@ -1,36 +1,36 @@
 import { Chart, registerables } from 'chart.js';
-import { useEffect, useState } from 'react';
+import { useRef } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 import './DoughnutChart.scss'
+import 'chart.js/auto';
+import * as helpers from 'chart.js/helpers';
 
-export function DoughnutChart() {
+export function DoughnutChart({test, chartValues}) {
   Chart.register(...registerables);
 
   const labels = [
-    "Cash",
-    "Cryptocurrency",
+    "Personal",
+    "Crypto",
     "Stocks",
-    "Bonds"
   ];
 
-  const percentages = [40, 25, 30, 5];
-
   const data = () => {
+
     return {
       labels,
       datasets: [
         {
           label: "Portfolio",
-          data: percentages,
+          data: chartValues,
           backgroundColor: [
-            'rgba(116,39,116,0.85)',
-            'rgba(58,123,213,0.85)',
-            'rgb(255, 205, 86, 0.85)',
-            'rgba(0,210,255,0.85)'
+            // 'rgba(116,39,116,0.75)',
+            'rgba(58,123,213,0.75)',
+            'rgb(255, 205, 86, 0.75)',
+            'rgba(0,210,255,0.75)'
           ],
           borderColor: [
-            'rgba(116,39,116,1)',
+            // 'rgba(116,39,116,1)',
             'rgba(58,123,213,1)',
             'rgba(255, 205, 86, 1)',
             'rgba(0,210,255,1)'
@@ -59,15 +59,22 @@ export function DoughnutChart() {
     },
     plugins: {
       title: {
-        display: true,
+        display: false,
         text: 'Assets Percentage',
       },
+      labels: {
+        render: (args) => `$${args.value}`,
+        fontSize: 14,
+      }
     },
   }
+  const chartRef = useRef(null)
 
   return(
-    <div className="doughnutChart">
+    <div className="doughnut-chart">
       <Doughnut
+        id={test}
+        ref={chartRef}
         options={options}
         data={data()}
       />

@@ -9,13 +9,13 @@ export function ListLink(props) {
     isAccountLink = false,
     accountTotal,
     iconName,
-    onLinkClick,
   } = props;
 
   return(
-    <div
+    <a
       className="list-link-container"
-      onClick={() => onLinkClick}
+      // onClick={() => onLinkClick}
+      href="#"
     >
       <div className="list-link-icon">
         { hasIcon && <IonIcon icon={iconName} />}
@@ -31,6 +31,6 @@ export function ListLink(props) {
           </div>
         }
       </div>
-    </div>
+    </a>
   )
 }

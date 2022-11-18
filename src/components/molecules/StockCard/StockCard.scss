@@ -1,0 +1,57 @@
+.discover-card-container {
+  border: 1px solid #d3d3d3;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #32302f;
+  max-height: 11.5rem;
+
+  .discover-card-img {
+    padding: 1rem 0 0 1rem;
+    width: 25%;
+  }
+
+  .discover-card-chart {
+    margin-left: -1rem;
+  }
+
+  .discover-card-footer {
+    padding: 0 1rem 1rem;
+
+    .discover-card-coin-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h4 {
+        margin: 0;
+        font-size: 1rem;
+      }
+      
+      .discover-card-variation {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 1rem;
+        
+        span {
+          display: block;
+        }
+        
+        &.positive {
+          color: #228B22;
+        }
+        
+        &.negative {
+          color: #F21C23;
+        }
+      }
+    }
+    
+    >p {
+      margin: 0.2rem 0 0;     
+      color: #797472;
+      font-size: 0.5rem;
+    }
+
+  }
+}

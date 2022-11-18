@@ -1,30 +1,30 @@
 import './Button.scss';
 import { IonIcon } from '@ionic/react';
+import { forwardRef, memo } from 'react';
 
-export function Button(props) {
-  const {
-    btnText,
-    hasIcon = false,
-    hasBorder = false,
-    iconName,
-    onButtonClick,
-    isDisabled,
-  } = props;
-
+export function CustomButton({
+  btnText,
+  hasIcon = false,
+  hasBorder = false,
+  iconName,
+  className = '',
+  ...props
+}, ref) {
   return(
-    <div
+    <button
+      {...props}
       className={`
         btn-container
         ${hasIcon ? 'with-icon' : ''}
         ${hasBorder ? 'border' : ''}
-        ${isDisabled ? 'disabled' : ''}
+        ${className}
       `}
-      onClick={!isDisabled ? onButtonClick : () => {}}
+      ref={ref}
     >
-      <div>
-        {btnText}
-      </div>
+      { btnText }
       { hasIcon && <IonIcon icon={iconName} />}
-    </div>
+    </button>
   )
 }
+
+export const Button = memo(forwardRef(CustomButton))

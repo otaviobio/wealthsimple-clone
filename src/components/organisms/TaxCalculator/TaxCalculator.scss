@@ -1,0 +1,83 @@
+.tax-calculator-container {
+  padding: 1rem 1.5rem;
+  
+  form {
+    width: 100%;
+    // flex: 1;
+    margin-bottom: 5rem;
+  }
+
+  .btn-container {
+    &:not(:last-child) {
+      padding: 0;
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+  }
+
+  // input {
+  //   background-color: transparent;
+  //   border-radius: 0.5rem;
+  //   padding: 0.25rem 0.5rem;
+  //   width: 100%;
+  //   border: 1px solid #32302f;
+    
+  //   &:focus {
+  //     border-width: 2px;
+  //     outline: solid;
+  //     outline-width: 0.5px;
+  //     outline-color: #32302f;
+  //   }
+  // }
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tax-calculator-results {
+  width: 80%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #54575a;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li>div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+// .custom-radio-button-container {
+//   border: 1px solid currentColor;
+//   border-radius: 0.5rem;
+//   gap: 0;
+// }
+
+// .input-container {
+//   position: relative;
+//   border: 1px solid #32302f;
+//   border-radius: 0.5rem;
+//   padding: 0 1rem;
+  
+//   label {
+//     position: absolute;
+//     font-size: 1rem;
+//     transform-origin: top left;
+//     transform: translateY(1rem) scale(1);
+//     transition: all .1s ease-in-out;
+
+//     &.active {
+//       transform: translateY(0.25rem) scale(0.75);
+//     }
+//   }
+// }

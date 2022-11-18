@@ -31,6 +31,6 @@ export const mainCardsContentBottomSession = [
   {
     animation: currencySecurity,
     cardText: "Top-notch security",
-    cardSubText: "We use state-of-the-art encryption to keep your data and money safe",
+    cardSubText: "We use state-of-the-art encryption to keep your data and money safe.",
   },
 ];

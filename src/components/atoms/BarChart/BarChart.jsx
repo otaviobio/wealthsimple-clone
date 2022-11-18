@@ -96,7 +96,7 @@ export function BarChart() {
   }
 
   return(
-    <div className="chart">
+    <div className="bar-chart">
       <Bar
         options={options}
         data={data()}
