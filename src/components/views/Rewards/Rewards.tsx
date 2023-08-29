@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 import moneyTree from "../../../assets/images/gold-dollar-coin-plant.png";
 import { Button } from '../../atoms/Button/Button';
 import './Rewards.scss'

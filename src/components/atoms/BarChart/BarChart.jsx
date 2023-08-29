@@ -24,7 +24,6 @@ export function BarChart() {
         }
       }).then((response) => {
         response.json().then((json) => {
-          console.log(json)
           setChart(json.data)
         })
       }).catch((error) => {

@@ -1,8 +1,8 @@
 .after-animation-session {
   display: flex;
   flex-direction: column;
-  gap: 16rem;
-  padding: 0 10vw;
+  // gap: 10rem;
+  // padding: 0 10vw;
   text-align: center;
   color: #32302f;
 
@@ -27,7 +27,7 @@
 }
 
 .bottom-main {
-  padding: 15vh 10vw;
+  padding: 70px 10px;
 
   .btn-container {
     margin: 0 auto -8rem;

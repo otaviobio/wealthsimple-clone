@@ -26,29 +26,6 @@ export function RetirementCalculator() {
   const incomePercentageRetirement = Math.round((formData.expectedAnnualExpenses * 100) / formData.annualIncome)
   const incomePercentageSavings = Math.round((formData.expectedMonthlySavings * 100) / (formData.annualIncome /12))
   const forecastResult = retirementGoal - projectedSavings
-  const totalSavings = projectedSavings + formData.savings
-
-  console.log(retirementGoal)
-  console.log(monthsToRetire)
-  console.log(projectedSavings)
-
-  function calculateCompoundInterest() {
-    let principal = 10000
-    let rate = 1.5
-    let time = 420
-    let additional = 625
-    let interest = 0
-    let total = 0
-
-    for (let i = 0; i < time; i++) {
-      interest = principal * (rate / 100)
-      principal = principal + interest + additional
-      total = total + interest
-    }
-
-    console.log("Total interest: " + Math.floor(total))
-    console.log("Total amount: " + Math.floor(principal))
-  }
 
   const retirementCalculatorData = [
     {
@@ -167,14 +144,10 @@ export function RetirementCalculator() {
       setIsElementClicked(null)
     }
   }
-  
-  console.log(formData);
-  console.log(formDataArray);
 
   const base = [0, retirementGoal, 0]
   const projection = [0, projectedSavings, 0]
   const labels = [`Age ${formData.age}`, `Age ${formData.ageOfRetirement}`, `Age 95`]
-  
   
   return(
     <IonPage>

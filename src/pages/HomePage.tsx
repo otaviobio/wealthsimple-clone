@@ -1,5 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonPage } from '@ionic/react';
 import { Hero } from '../components/molecules/Hero/Hero';
 import { MainContentCard } from '../components/molecules/MainContentCard/MainContentCard';
 import { NavMenu } from '../components/molecules/NavMenu/NavMenu';

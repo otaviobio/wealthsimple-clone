@@ -8,6 +8,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import HomePage from './pages/HomePage';
 import CardsDemoPage from './pages/CardsDemoPage';
 import AppPage from './pages/AppPage';
+import './styles/global.scss';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -36,7 +37,7 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <ChartProvider>
-    <IonApp>
+    <IonApp className='global-screen'>
       <IonReactRouter>
           <IonRouterOutlet>
             <Route exact path="/" component={HomePage}/>

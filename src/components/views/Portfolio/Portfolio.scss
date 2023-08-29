@@ -1,7 +1,7 @@
 .container {
   padding: 0 1rem;
   color: #32302f;
-  height: 100vh;
+  // height: 100vh;
 
   .portfolio-header {
     margin-bottom: 3rem;
@@ -15,6 +15,7 @@
   }
 
   .accounts-container {
+    width: 100%;
     .account-types {
       display: flex;
       flex-direction: column;

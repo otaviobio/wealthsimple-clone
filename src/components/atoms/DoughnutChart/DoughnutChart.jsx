@@ -4,7 +4,6 @@ import { Doughnut } from 'react-chartjs-2';
 
 import './DoughnutChart.scss'
 import 'chart.js/auto';
-import * as helpers from 'chart.js/helpers';
 
 export function DoughnutChart({test, chartValues}) {
   Chart.register(...registerables);
@@ -13,7 +12,7 @@ export function DoughnutChart({test, chartValues}) {
     "Personal",
     "Crypto",
     "Stocks",
-  ];
+  ]; 
 
   const data = () => {
 

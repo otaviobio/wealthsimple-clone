@@ -1,4 +1,3 @@
-import { Button } from "../../atoms/Button/Button";
 import "./TaxCalculator.scss";
 import { Input } from "../../atoms/Input/Input";
 import { useState } from "react";
@@ -96,8 +95,6 @@ export function TaxCalculator() {
       }));
     }
   };
-
-  console.log(formData);
 
   const taxCalculatorData = [
     {
@@ -228,36 +225,3 @@ export function TaxCalculator() {
   );
 }
 
-// const firstBracket = brackets[0]
-// const secondBracket = brackets[1]
-// const thirdBracket = brackets[2]
-// const fourthBracket = brackets[3]
-// const lastBracket = brackets[4]
-
-// const bracketOneAmount = firstBracket.bracketEnd * firstBracket.bracketPercentage
-// const bracketTwoAmount = (secondBracket.bracketEnd - firstBracket.bracketEnd) * secondBracket.bracketPercentage
-// const bracketThreeAmount = (thirdBracket.bracketEnd - secondBracket.bracketEnd) * thirdBracket.bracketPercentage
-// const bracketFourAmount = (fourthBracket.bracketEnd - thirdBracket.bracketEnd) * fourthBracket.bracketPercentage
-// let result = 0
-// if (taxableIncome <= firstBracket.bracketEnd) {
-//   result += (taxableIncome * firstBracket.bracketPercentage)
-//   console.log(`Bracket 1 ${result}`)
-// } else if (taxableIncome > firstBracket.bracketEnd && taxableIncome <= secondBracket.bracketEnd) {
-//     result += bracketOneAmount
-//     result += (taxableIncome - firstBracket.bracketEnd) * secondBracket.bracketPercentage
-//     console.log(`Bracket 2 ${result}`)
-//   } else if (taxableIncome > secondBracket.bracketEnd && taxableIncome <= thirdBracket.bracketEnd) {
-//       result += (bracketOneAmount + bracketTwoAmount)
-//       console.log(`partial ${result}`)
-//       result += (taxableIncome - secondBracket.bracketEnd) * thirdBracket.bracketPercentage
-//       console.log(`Bracket 3 ${result}`)
-//     } else if (taxableIncome > thirdBracket.bracketEnd && taxableIncome <= fourthBracket.bracketEnd) {
-//         result += (bracketOneAmount + bracketTwoAmount + bracketThreeAmount)
-//         result += (taxableIncome - thirdBracket.bracketEnd) * fourthBracket.bracketPercentage
-//         console.log(`Bracket 4 ${result}`)
-//       } else if (taxableIncome > fourthBracket.bracketEnd) {
-//         result += (bracketOneAmount + bracketTwoAmount + bracketThreeAmount + bracketFourAmount)
-//         result += (taxableIncome - fourthBracket.bracketEnd) * lastBracket.bracketPercentage
-//         console.log(`Bracket 5 ${result}`)
-//       }
-// return result;

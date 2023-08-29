@@ -17,7 +17,6 @@ import { AccountsContext } from '../../../pages/AppPage';
 const Portfolio: React.FC = () => {
   const [ready, setReady] = useState(false);
   const {accountDetails} = useContext(AccountsContext)
-  console.log(accountDetails)
 
   const portfolioValues = accountDetails.map((account) => account.accountTotal)
   const portfolioTotal = portfolioValues.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
